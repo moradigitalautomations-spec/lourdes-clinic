@@ -5,30 +5,23 @@
   <title>Admin Dashboard – Lourdes Clinic</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <!-- Google Font -->
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
-  <!-- AOS Animations -->
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-  <!-- Custom CSS (next file) -->
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
-  <!-- ================= WALK-IN PATIENT MODAL ================= -->
-
-
-      
-   
-
 <body>
 
-<!-- ================= SIDEBAR ================= -->
+<!-- SIDEBAR -->
 <aside class="sidebar">
   <h2 class="logo">Lourdes Clinic</h2>
-
   <nav>
     <a class="active"><i class='bx bx-grid-alt'></i> Dashboard</a>
     <a><i class='bx bx-user-plus'></i> Add Walk-in</a>
@@ -40,44 +33,32 @@
   </nav>
 </aside>
 
-<!-- ================= MAIN CONTENT ================= -->
+<!-- MAIN -->
 <main class="main">
 
-  <!-- Welcome Strip -->
+  <!-- Welcome -->
   <section class="welcome" data-aos="fade-down">
     <h1>Good Morning, Admin</h1>
     <p>Lourdes Clinic • Today’s Overview</p>
   </section>
 
-  <!-- Stats Cards -->
+  <!-- Stats -->
   <section class="stats">
-    <div class="stat-card" data-aos="fade-up">
-      <h3>24</h3>
-      <p>Today’s Patients</p>
-    </div>
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
-      <h3>11</h3>
-      <p>Walk-ins</p>
-    </div>
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-      <h3>8</h3>
-      <p>Online Appointments</p>
-    </div>
-    <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-      <h3>5</h3>
-      <p>Waiting</p>
-    </div>
+    <div class="stat-card"><h3>24</h3><p>Today’s Patients</p></div>
+    <div class="stat-card"><h3>11</h3><p>Walk-ins</p></div>
+    <div class="stat-card"><h3>8</h3><p>Online</p></div>
+    <div class="stat-card"><h3>5</h3><p>Waiting</p></div>
   </section>
 
-  <!-- Action + Snapshot -->
+  <!-- Actions -->
   <section class="actions">
-    <div class="primary-action" data-aos="zoom-in">
+    <div class="primary-action">
       <h2>➕ Register Walk-in Patient</h2>
       <p>Quickly register patients arriving at the clinic</p>
-      <button>Add Patient</button>
+      <button id="openModal">Add Patient</button>
     </div>
 
-    <div class="snapshot" data-aos="fade-left">
+    <div class="snapshot">
       <h3>Clinic Status</h3>
       <p><strong>Status:</strong> Open</p>
       <p><strong>Doctor:</strong> Dr. Kailash</p>
@@ -85,21 +66,20 @@
     </div>
   </section>
 
-  <!-- Appointments Table -->
-  <section class="table-section" data-aos="fade-up">
+  <!-- Table -->
+  <section class="table-section">
     <h2>Today’s Appointments</h2>
-
     <table>
       <thead>
         <tr>
           <th>Time</th>
           <th>Patient</th>
-          <th>Visit Type</th>
+          <th>Visit</th>
           <th>Doctor</th>
           <th>Status</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="appointmentTable">
         <tr>
           <td>10:00</td>
           <td>Ravi Kumar</td>
@@ -107,29 +87,41 @@
           <td>Dr. Kailash</td>
           <td><span class="status waiting">Waiting</span></td>
         </tr>
-        <tr>
-          <td>10:15</td>
-          <td>Online Booking</td>
-          <td>Online</td>
-          <td>Dr. Kailash</td>
-          <td><span class="status confirmed">Confirmed</span></td>
-        </tr>
-        <tr>
-          <td>09:45</td>
-          <td>Saranya</td>
-          <td>Follow-up</td>
-          <td>Dr. Kailash</td>
-          <td><span class="status completed">Completed</span></td>
-        </tr>
       </tbody>
     </table>
   </section>
 
 </main>
 
-<!-- Scripts -->
+<!-- MODAL -->
+<div class="modal-overlay" id="patientModal">
+  <div class="modal-card">
+    <h2>Register Walk-in Patient</h2>
+    <p class="modal-subtext">Quick patient registration</p>
+
+    <form id="patientForm">
+      <input type="text" id="name" placeholder="Patient Name" required>
+      <input type="tel" id="phone" placeholder="Mobile Number" required>
+      <input type="number" id="age" placeholder="Age">
+      <select id="visit">
+        <option>Walk-in</option>
+        <option>Follow-up</option>
+      </select>
+      <select id="slot">
+        <option>10:30</option>
+        <option>10:45</option>
+        <option>11:00</option>
+      </select>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" id="closeModal">Cancel</button>
+        <button type="submit" class="btn-primary">Register</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
