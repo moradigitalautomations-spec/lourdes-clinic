@@ -2,126 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Admin Dashboard – Lourdes Clinic</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-
-  <!-- AOS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
+  <title>Admin Portal – Lourdes Clinic</title>
+  <link rel="stylesheet" href="admin.css" />
 </head>
 <body>
 
-<!-- SIDEBAR -->
-<aside class="sidebar">
-  <h2 class="logo">Lourdes Clinic</h2>
-  <nav>
-    <a class="active"><i class='bx bx-grid-alt'></i> Dashboard</a>
-    <a><i class='bx bx-user-plus'></i> Add Walk-in</a>
-    <a><i class='bx bx-calendar'></i> Appointments</a>
-    <a><i class='bx bx-group'></i> Patients</a>
-    <a><i class='bx bx-user'></i> Doctor</a>
-    <a><i class='bx bx-cog'></i> Settings</a>
-    <a class="logout"><i class='bx bx-log-out'></i> Logout</a>
-  </nav>
-</aside>
+<div class="dashboard">
 
-<!-- MAIN -->
-<main class="main">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo">Lourdes Clinic</h2>
+    <nav>
+      <a class="active">Appointments</a>
+      <a>Patients</a>
+      <a>Doctor</a>
+      <a>Reports</a>
+      <a>Settings</a>
+      <a class="logout">Logout</a>
+    </nav>
+  </aside>
 
-  <!-- Welcome -->
-  <section class="welcome" data-aos="fade-down">
-    <h1>Good Morning, Admin</h1>
-    <p>Lourdes Clinic • Today’s Overview</p>
-  </section>
+  <!-- Main Content -->
+  <main class="main">
 
-  <!-- Stats -->
-  <section class="stats">
-    <div class="stat-card"><h3>24</h3><p>Today’s Patients</p></div>
-    <div class="stat-card"><h3>11</h3><p>Walk-ins</p></div>
-    <div class="stat-card"><h3>8</h3><p>Online</p></div>
-    <div class="stat-card"><h3>5</h3><p>Waiting</p></div>
-  </section>
+    <!-- Top Cards -->
+    <section class="stats">
+      <div class="stat">Today's Patients<br><strong>0</strong></div>
+      <div class="stat">Walk-ins<br><strong>0</strong></div>
+      <div class="stat">Online<br><strong>0</strong></div>
+      <div class="stat">Waiting<br><strong>0</strong></div>
+    </section>
 
-  <!-- Actions -->
-  <section class="actions">
-    <div class="primary-action">
+    <!-- Register Walk-in -->
+    <section class="register-card" id="registerCard">
       <h2>➕ Register Walk-in Patient</h2>
       <p>Quickly register patients arriving at the clinic</p>
-      <button id="openModal">Add Patient</button>
-    </div>
+      <button id="addPatientBtn">Add Patient</button>
+    </section>
 
-    <div class="snapshot">
-      <h3>Clinic Status</h3>
-      <p><strong>Status:</strong> Open</p>
-      <p><strong>Doctor:</strong> Dr. Kailash</p>
-      <p><strong>Next Slot:</strong> 10:30 AM</p>
-    </div>
-  </section>
+    <!-- Appointment Table -->
+    <section class="table-section hidden" id="appointmentsSection">
+      <h3>Today's Appointments</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Patient</th>
+            <th>Visit</th>
+            <th>Doctor</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="appointmentTable"></tbody>
+      </table>
+    </section>
 
-  <!-- Table -->
-  <section class="table-section">
-    <h2>Today’s Appointments</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Time</th>
-          <th>Patient</th>
-          <th>Visit</th>
-          <th>Doctor</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody id="appointmentTable">
-        <tr>
-          <td>10:00</td>
-          <td>Ravi Kumar</td>
-          <td>Walk-in</td>
-          <td>Dr. Kailash</td>
-          <td><span class="status waiting">Waiting</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+  </main>
+</div>
 
-</main>
-
-<!-- MODAL -->
-<div class="modal-overlay" id="patientModal">
-  <div class="modal-card">
-    <h2>Register Walk-in Patient</h2>
-    <p class="modal-subtext">Quick patient registration</p>
+<!-- Add Patient Modal -->
+<div class="modal hidden" id="patientModal">
+  <div class="modal-content">
+    <h3>Add Walk-in Patient</h3>
 
     <form id="patientForm">
-      <input type="text" id="name" placeholder="Patient Name" required>
-      <input type="tel" id="phone" placeholder="Mobile Number" required>
-      <input type="number" id="age" placeholder="Age">
+      <input type="text" id="name" placeholder="Patient Name" required />
+      <input type="number" id="age" placeholder="Age" required />
+
       <select id="visit">
         <option>Walk-in</option>
+        <option>Consultation</option>
         <option>Follow-up</option>
       </select>
-      <select id="slot">
-        <option>10:30</option>
-        <option>10:45</option>
-        <option>11:00</option>
-      </select>
 
-      <div class="modal-actions">
-        <button type="button" class="btn-cancel" id="closeModal">Cancel</button>
-        <button type="submit" class="btn-primary">Register</button>
+      <input type="time" id="slot" required />
+
+      <div class="actions">
+        <button type="submit">Save</button>
+        <button type="button" id="closeModal">Cancel</button>
       </div>
     </form>
   </div>
 </div>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="script.js"></script>
+<script src="admin.js"></script>
 </body>
 </html>
