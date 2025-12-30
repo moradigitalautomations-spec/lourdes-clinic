@@ -1,12 +1,10 @@
-// Initialize AOS (scroll animations)
 AOS.init({
   duration: 900,
   once: true,
   easing: 'ease-in-out'
 });
 
-// Initialize Swiper (services slider)
-const serviceSwiper = new Swiper('.swiper', {
+new Swiper('.swiper', {
   loop: true,
   autoplay: {
     delay: 2500,
