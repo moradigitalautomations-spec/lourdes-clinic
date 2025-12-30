@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Portal – Lourdes Clinic</title>
+  <link rel="stylesheet" href="patient.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo">Patient Portal</h2>
+    <nav>
+      <a class="active">My Visit</a>
+      <a>Reports</a>
+      <a>Profile</a>
+      <a class="logout" onclick="logout()">Logout</a>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Welcome -->
+    <section class="header">
+      <h1>Welcome 👋</h1>
+      <p>
+        This portal helps you stay informed about your visit at  
+        <strong>Lourdes Clinic</strong>.
+      </p>
+    </section>
+
+    <!-- Appointment Details -->
+    <section class="card">
+      <h3>Appointment Details</h3>
+
+      <div class="detail-row">
+        <span>Doctor</span>
+        <strong>Dr. Kailash</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Visit Type</span>
+        <strong id="visitType">-</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Appointment Time</span>
+        <strong id="visitTime">-</strong>
+      </div>
+
+      <div class="detail-row">
+        <span>Status</span>
+        <span class="status waiting">Waiting</span>
+      </div>
+
+      <p class="note">
+        Please arrive a few minutes early and keep your phone available
+        for any updates from the clinic staff.
+      </p>
+    </section>
+
+    <!-- Visit Progress -->
+    <section class="card">
+      <h3>Visit Progress</h3>
+
+      <ul class="timeline">
+        <li class="active">Patient Registered</li>
+        <li>Waiting for Consultation</li>
+        <li>Consultation Completed</li>
+      </ul>
+    </section>
+
+    <!-- Clinical Summary -->
+    <section class="card">
+      <h3>Doctor’s Clinical Summary</h3>
+
+      <p class="summary-info">
+        This summary is prepared based on the doctor’s consultation notes
+        to help you understand your visit better.
+      </p>
+
+      <textarea
+        id="summary"
+        readonly
+        placeholder="The doctor will update this section after your consultation..."
+      ></textarea>
+
+      <p class="disclaimer">
+        ⚠️ This summary is for informational purposes only.
+        Please follow the doctor’s advice given during consultation.
+      </p>
+    </section>
+
+  </main>
+</div>
+
+<script src="patient.js"></script>
+</body>
+</html>
 
