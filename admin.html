@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Admin Portal – Lourdes Clinic</title>
+  <title>Lourdes Clinic – Admin</title>
   <link rel="stylesheet" href="admin.css" />
 </head>
 <body>
@@ -13,54 +13,66 @@
   <aside class="sidebar">
     <h2 class="logo">Lourdes Clinic</h2>
     <nav>
-      <a class="active">Appointments</a>
+      <a class="active">Dashboard</a>
+      <a>Add Walk-in</a>
+      <a>Appointments</a>
       <a>Patients</a>
       <a>Doctor</a>
-      <a>Reports</a>
       <a>Settings</a>
       <a class="logout">Logout</a>
     </nav>
   </aside>
 
-  <!-- Main Content -->
+  <!-- Main -->
   <main class="main">
 
-    <!-- Top Cards -->
+    <!-- Header -->
+    <div class="header">
+      <h1>Good Morning, Admin</h1>
+      <p>Lourdes Clinic • Today’s Overview</p>
+    </div>
+
+    <!-- Stats -->
     <section class="stats">
-      <div class="stat">Today's Patients<br><strong>0</strong></div>
-      <div class="stat">Walk-ins<br><strong>0</strong></div>
-      <div class="stat">Online<br><strong>0</strong></div>
-      <div class="stat">Waiting<br><strong>0</strong></div>
+      <div class="stat"><strong>24</strong><br>Today's Patients</div>
+      <div class="stat"><strong>11</strong><br>Walk-ins</div>
+      <div class="stat"><strong>8</strong><br>Online</div>
+      <div class="stat"><strong>5</strong><br>Waiting</div>
     </section>
 
-    <!-- Register Walk-in -->
-    <section class="register-card" id="registerCard">
-      <h2>➕ Register Walk-in Patient</h2>
-      <p>Quickly register patients arriving at the clinic</p>
-      <button id="addPatientBtn">Add Patient</button>
-    </section>
+    <!-- Content Block -->
+    <div class="content-block">
 
-    <!-- Appointment Table -->
-    <section class="table-section hidden" id="appointmentsSection">
-      <h3>Today's Appointments</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Patient</th>
-            <th>Visit</th>
-            <th>Doctor</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody id="appointmentTable"></tbody>
-      </table>
-    </section>
+      <!-- Register -->
+      <section class="register-card" id="registerCard">
+        <h2>➕ Register Walk-in Patient</h2>
+        <p>Quickly register patients arriving at the clinic</p>
+        <button id="addPatientBtn">Add Patient</button>
+      </section>
+
+      <!-- Table -->
+      <section class="table-section hidden" id="appointmentsSection">
+        <h3>Today's Appointments</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Patient</th>
+              <th>Visit</th>
+              <th>Doctor</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="appointmentTable"></tbody>
+        </table>
+      </section>
+
+    </div>
 
   </main>
 </div>
 
-<!-- Add Patient Modal -->
+<!-- Modal -->
 <div class="modal hidden" id="patientModal">
   <div class="modal-content">
     <h3>Add Walk-in Patient</h3>
