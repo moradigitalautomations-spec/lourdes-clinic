@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Doctor Portal – Lourdes Clinic</title>
+  <link rel="stylesheet" href="doctor.css" />
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2 class="logo">Dr. Portal</h2>
+    <nav>
+      <a class="active">Today</a>
+      <a>Patients</a>
+      <a>Reports</a>
+      <a class="logout">Logout</a>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <div class="header">
+      <h1>Good Morning, Dr. Kailash</h1>
+      <p>Today's Patient Queue</p>
+    </div>
+
+    <!-- Queue -->
+    <section class="queue">
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Patient</th>
+            <th>Visit</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="queueTable">
+          <tr>
+            <td>10:00</td>
+            <td>Ravi Kumar</td>
+            <td>Walk-in</td>
+            <td><span class="status waiting">Waiting</span></td>
+            <td><button onclick="openConsultation('Ravi Kumar')">Open</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Consultation -->
+    <section class="consultation hidden" id="consultation">
+      <h2>Consultation</h2>
+      <p id="patientName"></p>
+
+      <textarea id="notes" placeholder="Enter clinical notes..."></textarea>
+
+      <button class="ai-btn" onclick="generateSummary()">Generate AI Summary</button>
+
+      <textarea id="summary" placeholder="AI Clinical Summary" readonly></textarea>
+
+      <button class="complete-btn" onclick="completeConsultation()">Mark as Completed</button>
+    </section>
+
+  </main>
+</div>
+
+<script src="doctor.js"></script>
+</body>
+</html>
