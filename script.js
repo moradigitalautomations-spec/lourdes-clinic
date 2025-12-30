@@ -1,40 +1,31 @@
-/* ================= INIT ANIMATIONS ================= */
-document.addEventListener("DOMContentLoaded", () => {
-  // Initialize AOS (smooth, calm animations)
-  if (window.AOS) {
-    AOS.init({
-      duration: 800,
-      easing: "ease-in-out",
-      once: true
-    });
-  }
-});
+AOS.init({duration:800,once:true});
 
-/* ================= FUTURE HOOKS ================= */
+const modal = document.getElementById("patientModal");
+const openBtn = document.getElementById("openModal");
+const closeBtn = document.getElementById("closeModal");
+const form = document.getElementById("patientForm");
+const table = document.getElementById("appointmentTable");
 
-/*
-  NOTE:
-  -----
-  We are intentionally keeping JS minimal for now.
-  This is a PROFESSIONAL decision.
+openBtn.onclick = () => modal.classList.add("active");
+closeBtn.onclick = () => modal.classList.remove("active");
 
-  What will be added later here:
-  - Walk-in patient form submission
-  - Saving data to backend / Google Sheet
-  - Updating appointments table dynamically
-  - Role-based login redirect
-  - AI clinical summary generation (Doctor Portal)
+form.onsubmit = e => {
+  e.preventDefault();
 
-  Keeping this file clean now avoids technical debt.
-*/
+  const name = document.getElementById("name").value;
+  const visit = document.getElementById("visit").value;
+  const slot = document.getElementById("slot").value;
 
-/* ================= UI PLACEHOLDERS ================= */
+  table.innerHTML += `
+    <tr>
+      <td>${slot}</td>
+      <td>${name}</td>
+      <td>${visit}</td>
+      <td>Dr. Kailash</td>
+      <td><span class="status waiting">Waiting</span></td>
+    </tr>
+  `;
 
-// Example: click handler for "Add Patient" button
-const addPatientBtn = document.querySelector(".primary-action button");
-
-if (addPatientBtn) {
-  addPatientBtn.addEventListener("click", () => {
-    alert("Walk-in Patient Form will open here.");
-  });
-}
+  form.reset();
+  modal.classList.remove("active");
+};
