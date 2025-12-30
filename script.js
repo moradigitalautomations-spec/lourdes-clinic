@@ -1,20 +1,32 @@
-AOS.init({duration:800,once:true});
-
+const addBtn = document.getElementById("addPatientBtn");
 const modal = document.getElementById("patientModal");
-const openBtn = document.getElementById("openModal");
-const closeBtn = document.getElementById("closeModal");
+const closeModal = document.getElementById("closeModal");
 const form = document.getElementById("patientForm");
+
 const table = document.getElementById("appointmentTable");
+const tableSection = document.getElementById("appointmentsSection");
+const registerCard = document.getElementById("registerCard");
 
-openBtn.onclick = () => modal.classList.add("active");
-closeBtn.onclick = () => modal.classList.remove("active");
+// Open modal
+addBtn.onclick = () => {
+  modal.classList.remove("hidden");
+};
 
-form.onsubmit = e => {
+// Close modal
+closeModal.onclick = () => {
+  modal.classList.add("hidden");
+};
+
+// Submit form
+form.onsubmit = (e) => {
   e.preventDefault();
 
   const name = document.getElementById("name").value;
   const visit = document.getElementById("visit").value;
   const slot = document.getElementById("slot").value;
+
+  modal.classList.add("hidden");
+  tableSection.classList.remove("hidden");
 
   table.innerHTML += `
     <tr>
@@ -26,6 +38,12 @@ form.onsubmit = e => {
     </tr>
   `;
 
+  registerCard.style.display = "none";
   form.reset();
-  modal.classList.remove("active");
+
+  /* 🔜 LATER:
+     Here we will send data to Excel / Google Sheets
+     using fetch() + webhook (n8n / Apps Script)
+  */
 };
+
