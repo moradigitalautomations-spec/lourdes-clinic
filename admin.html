@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard – Lourdes Clinic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS (next file) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar">
+  <h2 class="logo">Lourdes Clinic</h2>
+
+  <nav>
+    <a class="active"><i class='bx bx-grid-alt'></i> Dashboard</a>
+    <a><i class='bx bx-user-plus'></i> Add Walk-in</a>
+    <a><i class='bx bx-calendar'></i> Appointments</a>
+    <a><i class='bx bx-group'></i> Patients</a>
+    <a><i class='bx bx-user'></i> Doctor</a>
+    <a><i class='bx bx-cog'></i> Settings</a>
+    <a class="logout"><i class='bx bx-log-out'></i> Logout</a>
+  </nav>
+</aside>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="main">
+
+  <!-- Welcome Strip -->
+  <section class="welcome" data-aos="fade-down">
+    <h1>Good Morning, Admin</h1>
+    <p>Lourdes Clinic • Today’s Overview</p>
+  </section>
+
+  <!-- Stats Cards -->
+  <section class="stats">
+    <div class="stat-card" data-aos="fade-up">
+      <h3>24</h3>
+      <p>Today’s Patients</p>
+    </div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+      <h3>11</h3>
+      <p>Walk-ins</p>
+    </div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+      <h3>8</h3>
+      <p>Online Appointments</p>
+    </div>
+    <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+      <h3>5</h3>
+      <p>Waiting</p>
+    </div>
+  </section>
+
+  <!-- Action + Snapshot -->
+  <section class="actions">
+    <div class="primary-action" data-aos="zoom-in">
+      <h2>➕ Register Walk-in Patient</h2>
+      <p>Quickly register patients arriving at the clinic</p>
+      <button>Add Patient</button>
+    </div>
+
+    <div class="snapshot" data-aos="fade-left">
+      <h3>Clinic Status</h3>
+      <p><strong>Status:</strong> Open</p>
+      <p><strong>Doctor:</strong> Dr. Kailash</p>
+      <p><strong>Next Slot:</strong> 10:30 AM</p>
+    </div>
+  </section>
+
+  <!-- Appointments Table -->
+  <section class="table-section" data-aos="fade-up">
+    <h2>Today’s Appointments</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Patient</th>
+          <th>Visit Type</th>
+          <th>Doctor</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>10:00</td>
+          <td>Ravi Kumar</td>
+          <td>Walk-in</td>
+          <td>Dr. Kailash</td>
+          <td><span class="status waiting">Waiting</span></td>
+        </tr>
+        <tr>
+          <td>10:15</td>
+          <td>Online Booking</td>
+          <td>Online</td>
+          <td>Dr. Kailash</td>
+          <td><span class="status confirmed">Confirmed</span></td>
+        </tr>
+        <tr>
+          <td>09:45</td>
+          <td>Saranya</td>
+          <td>Follow-up</td>
+          <td>Dr. Kailash</td>
+          <td><span class="status completed">Completed</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</main>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
