@@ -2,25 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Clinic Login</title>
+  <title>Lourdes Clinic – Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="login.css">
 </head>
 <body>
 
-<div class="login-container">
+<div class="login-page">
 
-  <div class="login-card">
-    <h2>Clinic Management System</h2>
-    <p>Please sign in to continue</p>
+  <!-- Left Branding -->
+  <div class="login-brand">
+    <div class="brand-content">
+      <h1>Lourdes Clinic</h1>
+      <p>
+        A trusted place for compassionate care.<br>
+        Please sign in to continue.
+      </p>
 
-    <form id="loginForm">
-      <input type="email" id="email" placeholder="Email address" required>
-      <input type="password" id="password" placeholder="Password" required>
+      <div class="brand-note">
+        Secure access for Admin, Doctor & Patients
+      </div>
+    </div>
+  </div>
 
-      <button type="submit">Login</button>
-    </form>
+  <!-- Right Login Card -->
+  <div class="login-panel">
+    <div class="login-card">
 
-    <small>Admin / Doctor / Patient access</small>
+      <h2>Welcome Back</h2>
+      <p class="subtitle">Login to your account</p>
+
+      <form id="loginForm">
+        <div class="input-group">
+          <label>Email Address</label>
+          <input type="email" id="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="password" placeholder="Enter your password" required>
+        </div>
+
+        <button type="submit">Sign In</button>
+      </form>
+
+      <p class="helper">
+        Admin / Doctor / Patient access supported
+      </p>
+
+    </div>
   </div>
 
 </div>
